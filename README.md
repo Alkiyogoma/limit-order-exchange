@@ -1,6 +1,9 @@
 # Limit-Order Exchange Mini Engine
 
 A full-stack cryptocurrency exchange application built with Laravel and Vue.js, featuring real-time order matching, limit orders, and live balance updates via Pusher.
+![](https://raw.githubusercontent.com/Alkiyogoma/limit-order-exchange/refs/heads/main/public/dashboard.png)
+
+![](https://raw.githubusercontent.com/Alkiyogoma/limit-order-exchange/refs/heads/main/public/order.png)
 
 ## Project Overview
 

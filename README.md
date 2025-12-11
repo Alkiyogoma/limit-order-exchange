@@ -483,7 +483,7 @@ This project is developed as part of a technical assessment and is for evaluatio
 
 ---
 
-## 📧 Support
+## Support
 
 For questions or issues regarding this submission, please contact:
 - **Email**: [albogasty@gmail.com]

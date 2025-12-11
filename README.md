@@ -1,6 +1,9 @@
 # Limit-Order Exchange Mini Engine
 
 A full-stack cryptocurrency exchange application built with Laravel and Vue.js, featuring real-time order matching, limit orders, and live balance updates via Pusher.
+![](https://raw.githubusercontent.com/Alkiyogoma/limit-order-exchange/refs/heads/main/public/dashboard.png)
+
+![](https://raw.githubusercontent.com/Alkiyogoma/limit-order-exchange/refs/heads/main/public/order.png)
 
 ## Project Overview
 
@@ -50,7 +53,7 @@ Before you begin, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/Alkiyogoma/limit-order-exchange.git
 cd limit-order-exchange
 ```
 
@@ -191,7 +194,7 @@ After seeding, you can use these test accounts:
 
 ---
 
-## 🎮 How to Use
+## How to Use
 
 ### 1. Register/Login
 - Create a new account or use test accounts
@@ -286,59 +289,6 @@ limit-order-exchange/
     ├── Feature/
     └── Unit/
 ```
-
----
-
-## 🔧 Key Features Implementation
-
-### 1. Race Condition Prevention
-
-All critical operations use database locking:
-
-```php
-DB::transaction(function () {
-    $user = User::lockForUpdate()->find($userId);
-    $asset = Asset::lockForUpdate()->find($assetId);
-});
-```
-
-### 2. Commission Calculation
-
-1.5% commission on all trades:
-
-```php
-$commission = $volume * 0.015;
-$sellerReceives = $volume - $commission;
-```
-
-### 3. Order Matching Logic
-
-```php
-// For buy orders: find cheapest matching sell order
-Order::open()
-    ->sell()
-    ->where('price', '<=', $buyPrice)
-    ->where('amount', '=', $buyAmount)
-    ->orderBy('price', 'asc')
-    ->lockForUpdate()
-    ->first();
-```
-
-### 4. Real-Time Broadcasting
-
-```php
-// Broadcast to both users
-event(new OrderMatched($trade));
-
-// Frontend listens
-Echo.private(`user.${userId}`)
-    .listen('OrderMatched', (e) => {
-        // Update UI
-    });
-```
-
----
-
 
 ## Troubleshooting
 
@@ -533,7 +483,7 @@ This project is developed as part of a technical assessment and is for evaluatio
 
 ---
 
-## 📧 Support
+## Support
 
 For questions or issues regarding this submission, please contact:
 - **Email**: [albogasty@gmail.com]
